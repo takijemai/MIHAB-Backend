@@ -5,7 +5,7 @@ const cors = require('cors')
 const _ = require('lodash')
 const request= require('request')
 const corsOptions ={
-  origin:   ['http://localhost:8100','http://localhost'],
+  origin:   ['http://localhost:8100','http://localhost' , 'https://newmihab-d65abc91a2d0.herokuapp.com/'],
   credentials:true,  
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -18,11 +18,11 @@ app.use(cors(corsOptions))
 const server = require('http').createServer(app)
 const io = require('socket.io')(server,{
     cors: {
-    origin:  ['http://localhost:8100','http://localhost'],
+    origin:  ['http://localhost:8100','http://localhost', 'https://newmihab-d65abc91a2d0.herokuapp.com/'],
     credentials:true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Content-Length', 'Authorization'],          //access-control-allow-credentials:true
+    exposedHeaders: ['Content-Length', 'Authorization'],         
     optionSuccessStatus:200,
 }},
 );
